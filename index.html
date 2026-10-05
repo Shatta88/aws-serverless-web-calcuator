@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A serverless calculator powered by AWS Lambda, API Gateway and DynamoDB.">
+    <title>CloudCalc | AWS Serverless Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <!-- ============================
+         Header
+         ============================ -->
+    <header class="site-header">
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <div>
+                <h1>CloudCalc</h1>
+                <p>Powered by AWS Serverless</p>
+            </div>
+        </div>
+        <span class="status-badge">● Cloud powered</span>
+    </header>
+
+    <!-- ============================
+         Main content
+         ============================ -->
+    <main class="container">
+
+        <!-- Intro -->
+        <section class="intro">
+            <p class="eyebrow">YOUR EVERYDAY CALCULATOR</p>
+            <h2>Calculate smarter.</h2>
+            <p>Perform calculations and convert numbers between different bases.</p>
+        </section>
+
+        <!-- Arithmetic Calculator -->
+        <section class="card">
+            <h2>Arithmetic calculator</h2>
+            <p class="section-description">
+                Enter two numbers and choose an operation.
+            </p>
+
+            <form id="calculator-form">
+                <div class="input-grid">
+                    <label>
+                        First number
+                        <input id="number-a" type="number" step="any"
+                               placeholder="e.g. 25" required>
+                    </label>
+                    <label>
+                        Second number
+                        <input id="number-b" type="number" step="any"
+                               placeholder="e.g. 17" required>
+                    </label>
+                </div>
+
+                <label for="operation">Operation</label>
+                <select id="operation">
+                    <option value="add">Addition (+)</option>
+                    <option value="subtract">Subtraction (−)</option>
+                    <option value="multiply">Multiplication (×)</option>
+                    <option value="divide">Division (÷)</option>
+                    <option value="power">Power (xʸ)</option>
+                </select>
+
+                <button class="primary-button" type="submit">
+                    Calculate result
+                </button>
+            </form>
+
+            <div id="arithmetic-result" class="result-box" aria-live="polite">
+                <p>YOUR RESULT</p>
+                <output id="result-value">Your answer will appear here</output>
+            </div>
+        </section>
+
+        <!-- Number-base Converter -->
+        <section class="card">
+            <h2>Number-base converter</h2>
+            <p class="section-description">
+                Convert numbers between binary, decimal, hexadecimal and other bases.
+            </p>
+
+            <form id="conversion-form">
+                <label for="base-number">Number to convert</label>
+                <input id="base-number" type="text"
+                       placeholder="e.g. 255 or 1010" required>
+
+                <div class="input-grid">
+                    <label for="from-base">
+                        Convert from
+                        <select id="from-base">
+                            <option value="2">Binary (base 2)</option>
+                            <option value="3">Base 3</option>
+                            <option value="4">Base 4</option>
+                            <option value="8">Octal (base 8)</option>
+                            <option value="10" selected>Decimal (base 10)</option>
+                            <option value="16">Hexadecimal (base 16)</option>
+                            <option value="36">Base 36</option>
+                        </select>
+                    </label>
+
+                    <label for="to-base">
+                        Convert to
+                        <select id="to-base">
+                            <option value="2">Binary (base 2)</option>
+                            <option value="3">Base 3</option>
+                            <option value="4">Base 4</option>
+                            <option value="8">Octal (base 8)</option>
+                            <option value="10">Decimal (base 10)</option>
+                            <option value="16" selected>Hexadecimal (base 16)</option>
+                            <option value="36">Base 36</option>
+                        </select>
+                    </label>
+                </div>
+
+                <button class="primary-button" type="submit">
+                    Convert number
+                </button>
+            </form>
+
+            <div id="conversion-result" class="result-box" aria-live="polite">
+                <p>CONVERSION RESULT</p>
+                <output id="conversion-value">Your conversion will appear here</output>
+            </div>
+        </section>
+
+        <!-- History (collapsible) -->
+        <section class="card history-card">
+
+            <button class="history-toggle" id="history-toggle" type="button">
+                <span>Calculation history</span>
+                <span id="history-arrow" class="arrow">▼</span>
+            </button>
+
+            <div id="history-content" class="history-content">
+                <p class="section-description">
+                    Your successful calculations will be saved in DynamoDB.
+                </p>
+
+                <div id="history-list" class="history-list">
+                    <p class="empty-state">Loading history...</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ============================
+         Footer
+         ============================ -->
+    <footer>
+        <p>Built as an AWS learning project by Shatta A.A</p>
+        <p>Amazon API Gateway · AWS Lambda · Amazon DynamoDB · Amplify</p>
+    </footer>
+
+</body>
+</html>

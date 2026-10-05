@@ -1,0 +1,355 @@
+/* ============================
+   Reset
+   ============================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ============================
+   Design tokens
+   ============================ */
+
+:root {
+    --background: #f5f7fb;
+    --surface: #ffffff;
+    --text: #172033;
+    --muted: #667085;
+    --border: #d9dee8;
+    --primary: #5b4bdb;
+    --primary-dark: #4535bd;
+    --success: #15803d;
+    --shadow: 0 12px 35px rgba(23, 32, 51, 0.08);
+}
+
+
+/* ============================
+   Base
+   ============================ */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+/* ============================
+   Header
+   ============================ */
+
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.brand h1 {
+    font-size: 1.3rem;
+}
+
+.brand p {
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.status-badge {
+    color: var(--success);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+
+/* ============================
+   Layout
+   ============================ */
+
+.container {
+    width: min(950px, 92%);
+    margin: 0 auto;
+    padding: 55px 0;
+}
+
+
+/* ============================
+   Intro
+   ============================ */
+
+.intro {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.intro h2 {
+    font-size: clamp(2rem, 6vw, 3.3rem);
+    margin-bottom: 10px;
+}
+
+.intro > p:last-child {
+    color: var(--muted);
+}
+
+
+/* ============================
+   Cards
+   ============================ */
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+}
+
+.card h2 {
+    margin-bottom: 5px;
+}
+
+.section-description {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+
+/* ============================
+   Forms
+   ============================ */
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px 14px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: white;
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+
+/* ============================
+   Buttons
+   ============================ */
+
+.primary-button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    background: var(--primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.primary-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+
+/* ============================
+   Result box
+   ============================ */
+
+.result-box {
+    margin-top: 22px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f4f2ff;
+    text-align: center;
+}
+
+.result-box p {
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.result-box output {
+    display: block;
+    color: var(--primary);
+    font-size: 1.7rem;
+    font-weight: bold;
+    word-break: break-word;
+}
+
+
+/* ============================
+   History card & toggle
+   ============================ */
+
+.history-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 12px 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+}
+
+.history-toggle:hover {
+    color: #ff9900;
+}
+
+.history-toggle .arrow {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.history-content.collapsed {
+    display: none;
+}
+
+
+/* ============================
+   History list
+   ============================ */
+
+.history-list {
+    display: grid;
+    gap: 10px;
+}
+
+.history-item {
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.history-item .calculation {
+    font-weight: bold;
+}
+
+.history-item .history-result {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.empty-state {
+    color: var(--muted);
+    text-align: center;
+    padding: 20px;
+}
+
+.error {
+    color: #b42318 !important;
+}
+
+
+/* ============================
+   Footer
+   ============================ */
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+footer p + p {
+    margin-top: 5px;
+}
+
+
+/* ============================
+   Responsive
+   ============================ */
+
+@media (max-width: 650px) {
+    .site-header {
+        padding: 15px 4%;
+    }
+
+    .status-badge {
+        display: none;
+    }
+
+    .container {
+        width: 94%;
+        padding: 35px 0;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .intro {
+        margin-bottom: 25px;
+    }
+}
