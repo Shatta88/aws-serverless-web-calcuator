@@ -1,0 +1,35 @@
+What I Learned
+This project helped me understand how multiple AWS services work together to create a serverless application.
+
+Key concepts practiced:
+AWS Lambda
+API Gateway REST APIs
+DynamoDB
+IAM permissions
+CloudWatch debugging
+CORS
+Lambda proxy integration
+Serverless architecture
+API/frontend integration
+Database persistence
+GitHub project documentation
+
+Future Improvements
+
+Possible future improvements include:
+User authentication
+Individual user calculation histories
+Delete history functionality
+Pagination for large history datasets
+Improved API validation
+Custom domain
+Automated CI/CD deployment
+Infrastructure as Code using AWS CDK
+
+
+
+Author
+Abdulbaqi A Shatta
+AWS Cloud Practitioner
+AWS re/Start Graduate
+Aspiring Cloud / Cloud Security Professional
