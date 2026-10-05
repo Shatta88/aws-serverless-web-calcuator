@@ -163,6 +163,7 @@ The application handles common errors including:
 
 ## Project Structure
 
+'''text
 aws-serverless-calculator/
 │
 ├── index.html
